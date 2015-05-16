@@ -1,4 +1,4 @@
-#![feature(unsafe_destructor)]
+#![feature(no_std)]
 #![cfg_attr(not(test), no_std)]
 
 //! Thread-local and thread-safe shared slice types, like `&[T]` but
@@ -18,9 +18,10 @@
 //! chunks and distribute them across some threads.
 //!
 //! ```rust
-//! # #![allow(unstable)]
+//! extern crate rand;
+//!
 //! use shared_slice::arc::ArcSlice;
-//! use std::{cmp, rand, sync};
+//! use std::{cmp, sync};
 //!
 //! // Alice's numbers (the Mad Hatter doesn't care which numbers,
 //! // just that they've been summed up).
